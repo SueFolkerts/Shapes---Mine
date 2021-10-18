@@ -1,4 +1,6 @@
+import random
 import turtle
+
 
 turtle.title("My Turtle Game")
 turtle.bgcolor("grey")
@@ -51,6 +53,25 @@ def circle(length, color, x, y):
   sally.begin_fill()
   sally.circle(int(length))
   sally.end_fill()
+
+choice = input("Type R for random shapes  ")
+
+if choice == 'R':
+  for x in range(6):
+    shape = random.randint(0,3)
+    input_length = random.randint(10,200)
+    input_color = "#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)])
+    print( input_color)
+    input_x = float(random.randint(-200, 200))
+    input_y = float(random.randint(-200, 200))
+    if shape == 0:
+      star(input_length,input_color, input_x, input_y)
+    elif shape == 1:
+      triangle(input_length,input_color, input_x, input_y)
+    elif shape == 2:
+      square(input_length,input_color, input_x, input_y)
+    elif shape == 3:
+      circle(input_length,input_color, input_x, input_y)
 
 while True:
   input_shape = input ("What shape you want to draw? or none to quit  ")
